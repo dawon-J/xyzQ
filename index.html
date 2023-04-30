@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+		xyzQ: multiverse observation system
+	</title>
+	<style type="text/css">
+		@font-face {
+	    font-family: 'Pretendard';
+	    font-weight: 100;
+	    font-style: normal;
+	    src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.eot');
+	    src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.eot?#iefix') format('embedded-opentype'),
+	        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.woff2') format('woff2'),
+	        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.woff') format('woff'),
+	        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.ttf') format("truetype");
+	    font-display: swap;
+		unicode-range: U+AC00-U+D7A3}
+		html{background-color: black; font-size: 20pt;font-family: 'Roboto', sans-serif;font-family: 'Pretendard';}
+		body{margin:0}
+		div, .yes, .choice, .q, .ex_text{text-align: center;}
+		div{padding-bottom: 200px; padding-bottom: 200px}
+		section{padding-top: 200px; padding-bottom: 200px}
+		.banner_bg{background-image:url(./img/banner_orange.png);background-attachment: fixed; background-size: 100%;  background-size: cover;  background-position: center;position: relative; height:100vh;padding-bottom: 100px}
+		.banner_blue{background: linear-gradient(to bottom, rgba(0,0,0,0), #000000);height: 100%;position: absolute;top: 0; left: 0;right: 0;bottom: 0;}
+		img{width: 100%; padding-bottom: 70px}
+		h2, h3, h5, p{color: #aae8ac; width: 800px; margin: auto; text-align: left;}
+		h2{font-size: 3rem; padding-bottom: 50px;text-shadow: #aae8ac 0px 0px 0.4rem}
+		h3{font-size: 1.5rem;padding-bottom: 20px;text-shadow: #aae8ac 0px 0px 0.4rem}
+		h4{font-size: 0.6rem;color: #25fdff; width: 800px; margin: auto; text-align: left; padding-top: 20px;padding-bottom: 20px}
+		h5{padding-bottom: 70px; line-height: 160%}
+		h6{color:#25FDFF; font-size: 30px; width: 800px; margin: auto; text-align: left;}
+		p{line-height: 160%; font-size: 0.8rem}
+		.logo{width: 7%; padding-left: 70px;padding-top: 30px;position: sticky; top:0;}
+		.choice_bg{padding-bottom: 0px}
+		.choice{padding-bottom: 0px}
+		.birth_bg{background-image: url(./img/birth.png); background-size: 100%; background-position: center top;padding-top: 0px; padding-bottom: 300px; background-repeat: no-repeat;}
+		.birth{padding-top: 900px; padding-bottom: 0px;padding-left: 700px}
+		.ex, .blur_logo_img {width: 800px;}
+		.blur_logo{background-image: url(./img/blur_logo.png); background-attachment: fixed;text-align: center; padding-top: 500px; padding-bottom: 500px; background-repeat: no-repeat;background-position: center;}
+		.xyzQ h3{text-align: center;width: 1000px;}
+		.caution_blue{background-image: url(./img/caution_blue.png); background-attachment: fixed;}
+		.caution_red_div{padding-left: 700px}
+		.caution_red_div h3 {text-shadow: #FFA13E 0px 0px 0.4rem}
+		.caution0405{color:#FF0000}
+		.caution_text{color:#FFA13E}
+		.caution_red{background-image: url(./img/caution_red.png); background-attachment: fixed}
+		.caution_red, .caution_blue{padding-top: 300px; padding-bottom: 100px;background-size: 100%;background-position: center center;background-repeat: no-repeat;}
+		.question{width: 1000px; padding-top: 300px; padding-bottom: 100px;text-align: center; text-shadow: #AAE8AC 0px 0px 0.5rem; font-size: 24pt}
+		.yes{border: 1px #25FDFF solid; padding-bottom: 0px; width: 300px; text-align: center; margin: auto;background-color: #05191A}
+		.yes p{text-align: center; color:#25FDFF; padding-bottom: 12px;padding-top: 10px; width: 180px;margin: 0px; padding-left: 61px; padding-right: 61px}
+		.yes:hover{background: #25FDFF;transition: all 0.2s}
+		.yes p:hover{color: black;}
+		.go_bg{padding-bottom:0px}
+		.go{padding-bottom: 300px;padding-top: 500px; background-image: url(./img/go.png); background-size: 100%; background-attachment: fixed; background-repeat: no-repeat; background-position: center;}
+		.ceo_bg{background-image: url(./img/ceo.png); background-attachment: fixed; background-repeat: no-repeat; background-position: 150px center; margin-left: 0px;padding-left: 300px}
+		.ceo{margin: auto;width: 70%; padding-bottom: 0px;padding-left: 20px}
+		.ceo h3{padding-top: 200px; padding-bottom: 200px; color: #FFA13E; text-shadow: #FFA13E 0px 0px 0.5rem}
+		.ceo h6{margin-left:0px;padding-top:0px;padding-bottom: 30px;text-shadow: #25FDFF 0px 0px 0.5rem}
+		.summary{border: 1px #25FDFF solid;padding: 0;text-shadow: #25FDFF 0px 0px 0.5rem; width: 820px}
+		.summary p{width: 740px; padding: 30px}
+		.xx_bg{background-image: url(./img/xx.png); background-attachment: fixed; background-repeat: no-repeat; background-position: 150px center; margin-left: 0px;padding-left: 300px; padding-bottom: 500px}
+		.xx{margin: auto;width: 70%; padding-bottom: 0px;padding-left: 20px}
+		.xx h3{padding-top: 200px; color: #FFA13E; padding-bottom: 200px; text-shadow: #FFA13E 0px 0px 0.5rem}
+		.xx h6{margin-left:0px;padding-top:0px;padding-bottom: 30px;text-shadow: #25FDFF 0px 0px 0.5rem}
+		.question2{padding-top: 300px; padding-bottom: 100px;text-align: center; text-shadow: #AAE8AC 0px 0px 0.5rem; font-size: 30pt}
+		.done{padding-bottom: 900px}
+		.footer_logo{width: 10%;padding: 0}
+		footer p{font-size: 10pt;text-align: center;padding-bottom: 50px;padding-top: 0px;width: 300px}
+		footer{text-align: center;width: 1000px;margin: auto; padding-bottom: 0}
+		.footer{display: flex;padding-bottom: 0}
+		.footer_text{display: inline;vertical-align: bottom; padding-bottom:0; flex:1}
+
+
+	</style>
+</head>
+<body>
+	<div class="banner_bg">
+		<div class="banner_blue">
+			<img src="./img/banner_blue.png">
+		</div>
+	</div>
+		<div class="logo">
+		<img src="./img/logo.png">
+	</div>
+	<section class="choice_bg">
+		<div class="choice">
+			<img src="./img/choice.png">
+			<h2>a crossroads of choice</h2>
+			<p>우리는 살아가면서 수많은 선택의 여지를 마주합니다.<br> 어떤 선택을 하느냐에 따라 세상은 분열합니다. 모든 경우의 수로요. </p>
+		</div>
+	</section>
+	<section class="birth_bg">
+		<div class="birth">
+			<h2>Birth<br>of the Multiverse</h2>
+			<p>이런 선택들을 통해, 현재 당신과는 완전히 다른 삶을 사는 ‘또다른<br>당신’들이 셀 수도 없이 생겨납니다. 당신이 상상하는 모든 가능성이<br>우주 안에서 이미 존재한다면, 믿으시겠습니까?</p>
+		</div>
+	</section>
+	<section>
+		<div>
+			<img class="ex" src="./img/doctor.png">
+			<p class="ex_text">우리가 사는 세상 어딘가에 의사라는 직업을 가진 A가 있다고 가정해 보겠습니다.<br>우리의 우주에서는 A가 사람들의 생명을 살리는 일을 하고 있겠네요.</p>
+		</div>
+	</section>
+	<section>
+		<div>
+			<img class="ex" src="./img/kill.png">
+			<p class="ex_text">한편으로, 또다른 우주에서는 A씨가 사람들의 생명을 빼앗는<br>살인마의 인생을 살고 있을 가능성이 존재합니다.</p>
+		</div>
+	</section>
+	<section>
+		<div>
+			<img src="./img/people.png">
+			<p class="ex_text">여기에서 그치지 않습니다. 축구선수로 성공한 A씨가 사는 우주,<br>제약회사에서 연구원으로 일하는 A씨가 사는 우주 등...<br>A씨가 인생을 살아가며 어떤 선택을 했는지에 따라 A씨의 삶은 완전히 달라집니다.</p>
+		</div>
+	</section>
+	<section class="blur_logo">
+		<div class ="xyzQ">
+			<h3>xyzQ는 다중우주 속 당신의 모습을 관측해 볼 기회를 제공합니다.</h3>
+		</div>
+	</section>
+	<section class="caution_blue">
+		<div>
+			<h4>CAUTION 01</h4>
+			<h3>이용자는 다중우주를<br>실제로 체험할 수 없습니다.</h3>
+			<h5>본 사이트에서 제공하는 서비스는 다중우주의 관측에 한정됩니다.</h5>
+
+			<h4>CAUTION 02</h4>
+			<h3>이용자가 관측하는 다중우주는<br>임의로 지정됩니다.</h3>
+			<h5>사이트 이용자가 특정 우주를 직접 지정할 수 없습니다.</h5>
+
+			<h4>CAUTION 03</h4>
+			<h3>더 보고 싶다면<br>추가 금액을 지불하세요.</h3>
+			<h5>추가로 지불하는 금액에 따라 관측 가능한 다중우주의 개수가<br>차등적으로 주어집니다.</h5>
+		</div>
+	</section>
+	<section class="caution_red">
+		<div class="caution_red_div">
+			<h4 class="caution0405">CAUTION 04</h4>
+			<h3 class="caution_text">이용 후 일어나는 부작용에 대한<br>책임은 본인에게 있습니다.</h3>
+			<h5 class="caution_text">어떤 모습의 당신을 마주하게 될지 모릅니다.<br>추가 지불 여부에 대해 신중히 결정하세요.</h5>
+
+			<h4 class="caution0405">CAUTION 05</h4>
+			<h3 class="caution_text">해당 사이트 방문 기록을<br>이용 즉시 삭제하십시오.</h3>
+			<h5 class="caution_text">삭제하지 않을 시 정부 지침에 따른 불이익이 발생할 수 있습니다.</h5>
+		</div>
+	</section>
+	<section>
+		<p class=question>우리 사이트의 접근 경로를 찾은 유저들에게 2개의 열람권을 무료로 제공합니다.<br>다른 모습의 당신을 볼 수 있다면, 열람하시겠습니까?</p>
+		<div class="yes">
+			<p>네, 열람하겠습니다.</p>
+		</div>
+	</section>
+	<section class="go_bg">
+		<div class="go"></div>
+	</section>
+	<section class="ceo_bg">
+		<div class="ceo">
+			<h3>K-129381 우주에서 당신은 대기업 CEO입니다.</h3>
+			<img src="./img/ceo_info.png">
+			<h6>summary</h6>
+			<div class="summary">
+				<p>K-129381 우주에서 당신은 억대 연봉을 거뜬히 넘고도 남는 재력가입니다. 공부와 유흥 중에서는 공부를, 휴가와 야근 중에서는 야근을, 사교 모임과 자기 계발 중에서는 자기 계발을 선택한 당신은 끝내 대기업의 CEO가 되며 사회적으로 크게 성공합니다. 많은 부와 명예를 얻었으나, 일 외의 다른 것과는 담을 쌓아왔기 때문에 가진 것들을 소비하거나 활용할 여지가 없습니다.<br>나는 행복한가?’에 대한 고민을 자주 하며 부와 명예가 인생의 전부는 아니라는 것을 깨닫습니다. 누군가는 그럼에도 부러운 인생이라고 하겠으나, 당신은 결코 그렇게 생각하지 않습니다. 물질적인 것 외에는 가진 게 없기 때문이죠.</p>
+			</div>
+		</div>
+	</section>
+	<section class="xx_bg">
+		<div class="xx">
+			<h3>L-839129 우주에서 당신은 악플러입니다.</h3>
+			<img src="./img/xx_info.png">
+			<h6>summary</h6>
+			<div class="summary">
+				<p>L-839129 우주에서 당신은 직업 내역이 존재하지 않는 악플러입니다.외출과 은둔 중에서는 은둔을, 현실과 인터넷 중에서는 인터넷을, 발전과 회피 중에서는 회피를 선택한 당신은 끝내 바깥으로 나오지 않는 은둔형 악플러가 됩니다. 가족 관계 등 외부 환경의 문제는 전무했으나, 세상을 있는 그대로 바라보지 못해왔기에 자신의 방에서 키보드로 남들을 공격할 수밖에 없습니다.<br>익명에 숨어 남들에게 상처를 입히며 자신이 얻는 것은 전혀 없으나, 그럼에도 멈출 수 없습니다. 다른 방식으로 스트레스를 해소하는 법을 알지 못하기 때문입니다.</p>
+			</div>
+		</div>
+	</section>
+	<section class="done">
+		<p class=question2>무료로 제공되는 열람권을 모두 소진하셨습니다.<br>추가 결제를 하시겠습니까?</p>
+		<div class="yes">
+			<p>네, 결제하겠습니다.</p>
+		</div>
+	</section>
+
+
+	<footer>
+		<img class="footer_logo" src="./img/footer_logo.png">
+		<div class="footer">
+			<div class="footer_text">
+				<p>The access path to this site will continue to change.</p>
+			</div>
+			<div class="footer_text">
+				<p>Designed by unknown_</p>
+			</div>
+			<div class="footer_text">
+				<p>The copyright holder cannot be identified.
+				</p>
+			</div>
+		</div>
+
+	</footer>
+	</body>
+	</html>
